@@ -6,3 +6,4 @@ This is a basic setup of networking infrastructure as code based on a structure 
 
 - VPC
 - Internet Gateway
+- Subnets (2 x public, 2 x private)
