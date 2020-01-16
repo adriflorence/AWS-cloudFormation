@@ -3,16 +3,15 @@ Description: >
 
 Parameters:
     EnvironmentName:
+        Description: An environment name that will be prefixed to resource names
         Type: String
-
 Resources:
+    
     LBSecGroup:
         Type: AWS::EC2::SecurityGroup
         Properties:
             GroupDescription: Allow HTTP to load balancer
-            VpcId:
-              Fn::ImportValue:
-                !Sub "${EnvironmentName}-VPCID"
+            VpcId: !Ref VPC
             SecurityGroupIngress:
             - IpProtocol: tcp
               FromPort: 80
@@ -27,9 +26,7 @@ Resources:
         Type: AWS::EC2::SecurityGroup
         Properties:
             GroupDescription: Allow HTTP to host and SSH from local only
-            VpcId:
-              Fn::ImportValue:
-                !Sub "${EnvironmentName}-VPCID"
+            VpcId: !Ref VPC
             SecurityGroupIngress:
             - IpProtocol: tcp
               FromPort: 8080
@@ -44,4 +41,3 @@ Resources:
               FromPort: 0
               ToPort: 65535
               CidrIp: 0.0.0.0/0
-   
