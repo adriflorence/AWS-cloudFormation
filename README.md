@@ -9,6 +9,8 @@ This is a basic setup of networking infrastructure as code based on a structure 
 - Subnets (2 x public, 2 x private)
 - Route Table (1 x public, 2 x private)
 - Route Table Associations
+- A Security Group
+- Launch Configuration
 
 ## Trigger stack update:
 
